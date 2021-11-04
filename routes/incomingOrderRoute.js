@@ -10,7 +10,7 @@ if(process.env.NODE_ENV === 'Development') {
 }
 // GET INCOMING ORDER DETAILS
 router.post('/api/v1/sendOrder', async (req, res) => {
-
+  console.log(req.body)
   const reqOptKLFWooCommerce = {
     url: `${currentURL}/api/v1/klf/woocommerce/${2}`,
     method: 'POST',
