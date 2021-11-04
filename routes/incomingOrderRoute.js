@@ -21,6 +21,7 @@ router.post('/api/v1/sendOrder', async (req, res) => {
   };
   
   try {
+    console.log(req.body)
     request(reqOptKLFWooCommerce, (err, resKLFWooCommerce, body) => { })
     res.status(200).json({
       status: "OK",
