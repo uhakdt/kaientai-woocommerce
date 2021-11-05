@@ -3,17 +3,17 @@ const request = require('request');
 
 const router = express.Router();
 
-let currentURL = process.env.KAIENTAI_API_URL_PROD;
+let kaientaiAPIURL = process.env.KAIENTAI_API_URL_PROD;
 
 if(process.env.NODE_ENV === 'Development') {
-  currentURL = process.env.KAIENTAI_API_URL_DEV
+  kaientaiAPIURL = process.env.KAIENTAI_API_URL_DEV
 }
 
 // GET INCOMING ORDER DETAILS
 router.post('/api/v1/sendOrder', async (req, res) => {
 
   const reqOptKLFWooCommerce = {
-    url: `${currentURL}/api/v1/klf/woocommerce/${2}`,
+    url: `${kaientaiAPIURL}/api/v1/klf/woocommerce/${2}`,
     method: 'POST',
     json: {
       "dataBody": req.body
