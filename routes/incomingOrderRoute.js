@@ -3,17 +3,13 @@ const request = require('request-promise');
 
 const router = express.Router();
 
-let kaientaiAPIURL = process.env.KAIENTAI_API_URL_PROD;
-
-if(process.env.NODE_ENV === 'Development') {
-  kaientaiAPIURL = process.env.KAIENTAI_API_URL_DEV
-}
+let API_URL = process.env.KAIENTAI_API_URL;
 
 // GET INCOMING ORDER DETAILS
 router.post('/api/v1/sendOrder/:supplierID', async (req, res) => {
 
   const reqOpt = {
-    url: `${kaientaiAPIURL}/api/v1/klf/woocommerce/${req.params.supplierID}`,
+    url: `${API_URL}/api/v1/klf/woocommerce/${req.params.supplierID}`,
     method: 'POST',
     json: {
       "data": req.body
